@@ -81,7 +81,3 @@ def detail_formation(id_formation):
     from apb.models import Formation
     formation = Formation.query.filter_by(id=id_formation).first()
     return render_template("etablissements/detail_formation.html", formation=formation)
-
-
-if __name__ == "__main__":
-    app.run(debug=True)

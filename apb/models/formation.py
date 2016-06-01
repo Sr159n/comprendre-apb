@@ -21,20 +21,20 @@ class Formation(db.Model):
         # TODO Faire la comparaison dans les methodes __lt__ et __gt__ de la classe Voeu
         if eleve1.academie == academie and eleve2.academie != academie:
             # Le candidat 1 est de l'academie mais pas le candidat 2
-            return 1
+            return -1
         elif eleve1.academie != academie and eleve2.academie == academie:
             # Le candidat 2 est de l'academie mais pas le candidat 1
-            return -1
+            return 1
         else:
             if candidature1.classement_relatif < candidature2.classement_relatif:
-                return 1
-            elif candidature1.classement_relatif > candidature2.classement_relatif:
                 return -1
+            elif candidature1.classement_relatif > candidature2.classement_relatif:
+                return 1
             else:
                 if candidature1.classement_absolu < candidature2.classement_absolu:
-                    return 1
-                elif candidature1.classement_absolu > candidature2.classement_absolu:
                     return -1
+                elif candidature1.classement_absolu > candidature2.classement_absolu:
+                    return 1
                 else:
                     if candidature1.nombre_aleatoire > candidature2.nombre_aleatoire:
                         return 1

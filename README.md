@@ -32,7 +32,7 @@ Utilisation
 Vous pouvez remplir la base de données à l'aide de votre interface de base de données préférée
 (des formulaires et des générateurs automatiques seront ajoutés à ce package à l'avenir).
 
-Pour lancer le serveur de développement, lancez le script `apb/__init__.py`
+Pour lancer le serveur de développement, lancez le script `wsgi.py`
 puis rendez-vous dans votre navigateur à l'adresse `http://127.0.0.1:5000/`.
 
 Visualisez la liste des établissements, sélectionnez celui qui vous intéresse puis la filière au sein de celui-ci.

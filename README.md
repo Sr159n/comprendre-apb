@@ -1,5 +1,5 @@
-Simulateur Admissions Post-Bac
-==============================
+Simulateur Admission Post-Bac
+=============================
 
 Ce package permet de simuler l'algorithme de classement des candidatures aux formations non-sélectives,
 publié par le Ministère de l'Éducation nationale le 1er juin 2016.
@@ -41,7 +41,7 @@ Vous accéderez alors à la liste des candidatures pour cette formation, classé
 À propos
 --------
 
-Le but de ce package est d'améliorer la transparence du logiciel Admissions Post-Bac.
+Le but de ce package est d'améliorer la transparence du logiciel Admission Post-Bac.
 Je le publie dès maintenant sous une forme très primitive pour que la communauté des développeurs puisse se l'approprier.
 J'espère l'enrichir rapidement d'une interface graphique plus complète et le déployer à terme sur un serveur web
 pour que chacun puisse l'essayer.

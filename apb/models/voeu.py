@@ -27,9 +27,14 @@ class Voeu(db.Model):
 
     @property
     def classement_relatif(self):
-        # Classement parmi tous les voeux de l'eleve pour la meme formation
+        # Classement parmi tous les voeux de l'eleve pour la meme filiere
+        from formation import Formation
+        formations = Formation.query.filter_by(filiere=self.formation.filiere)
+        formations_ids = [formation.id for formation in formations]
         autres_voeux = self.__class__.query\
-            .filter_by(eleve=self.eleve, formation=self.formation)\
+            .filter(self.__class__.eleve == self.eleve)\
+            .filter(self.__class__.formation_id.in_(formations_ids))\
             .order_by("classement")\
             .all()
-        return autres_voeux.index(self)
+        # TODO Faire tout ceci en une seule requete
+        return autres_voeux.index(self) + 1

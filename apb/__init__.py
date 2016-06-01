@@ -2,9 +2,13 @@
 
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 app = Flask(__name__)
-app.config.setdefault("SQLALCHEMY_DATABASE_URI", "mysql+mysqldb://root:root@127.0.0.1/apb")
+app.config.setdefault(
+    "SQLALCHEMY_DATABASE_URI",
+    os.environ.get("DATABASE_URL", "postgres://localhost:5432/apb")
+)
 app.config.from_pyfile("settings.cfg", silent=True)
 
 db = SQLAlchemy(app)

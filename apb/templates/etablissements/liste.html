@@ -1,0 +1,28 @@
+{% extends "master.html" %}
+
+{% block main %}
+
+    <h1>Liste des établissements</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nom</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for etab in etabs %}
+                <tr>
+                    <td>{{ etab.id }}</td>
+                    <td>
+                        <a href="{{ url_for("detail_etablissement", id_etab=etab.id) }}">
+                            {{ etab.nom }}
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

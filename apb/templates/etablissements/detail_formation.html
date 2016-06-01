@@ -1,0 +1,46 @@
+{% extends "master.html" %}
+
+{% block main %}
+
+    <h1>Détail d'une formation</h1>
+
+    <dl>
+        <dt>Établissement</dt>
+        <dd>
+            <a href="{{ url_for("detail_etablissement", id_etab=formation.etablissement.id) }}">
+                {{ formation.etablissement.nom }}
+            </a>
+            (Académie : {{ formation.etablissement.academie.nom }})
+        </dd>
+        <dt>Filière</dt>
+        <dd>{{ formation.filiere.nom }}</dd>
+        <dt>Nombre de places disponibles</dt>
+        <dd>{{ formation.capacite }}</dd>
+    </dl>
+
+    <h2>Classement des candidatures</h2>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Classement</th>
+                <th>Identifiant élève</th>
+                <th>Académie</th>
+                <th>Vœu absolu</th>
+                <th>Vœu relatif</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for candidature in formation.candidatures_classees %}
+                <tr {% if loop.index <= formation.capacite %}class="success"{% endif %}>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ candidature.eleve.id }}</td>
+                    <td>{{ candidature.eleve.academie.nom }}</td>
+                    <td>{{ candidature.classement_absolu }}</td>
+                    <td>{{ candidature.classement_relatif }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

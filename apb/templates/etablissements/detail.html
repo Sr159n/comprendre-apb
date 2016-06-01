@@ -1,0 +1,25 @@
+{% extends "master.html" %}
+
+{% block main %}
+
+    <h1>Fiche établissement</h1>
+
+    <dl>
+        <dt>Identifiant</dt>
+        <dd>{{ etab.id }}</dd>
+        <dt>Nom</dt>
+        <dd>{{ etab.nom }}</dd>
+    </dl>
+
+    <h2>Formations disponibles</h2>
+
+    <div class="list-group">
+        {% for formation in etab.formations %}
+            <a href="{{ url_for("detail_formation", id_formation=formation.id) }}" class="list-group-item">
+                {{ formation.filiere.nom }}
+                <span class="badge">{{ formation.filiere.capacite }}</span>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

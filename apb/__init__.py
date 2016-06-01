@@ -14,8 +14,9 @@ db = SQLAlchemy(app)
 def accueil():
     body = """
     <h1>Bienvenue sur le simulateur APB</h1>
-    <p><a href="%s">Voir la liste des établissements</a></p>
-    """ % url_for("liste_etablissements")
+    <p><a href="%s">Voir la description de l'algorithme.</a></p>
+    <p><a href="%s">Voir la liste des établissements.</a></p>
+    """ % (url_for("static", filename="algorithme-apb-menesr.pdf"), url_for("liste_etablissements"))
 
     html = "<html><body>%s</body></html>" % body
 
